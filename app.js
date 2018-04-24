@@ -1,6 +1,6 @@
 "use strict";
 var Discord = require("discord.js");
-const authToken = "NDM4MzEyNTIzNjI5MDY4Mjg5.DcC04w.JN-3eOZTcHMDlvZTjgX797RyNDw";
+const authToken = process.env.token;
 var bot = new Discord.Client();
 
 bot.on('message', (message) => {
