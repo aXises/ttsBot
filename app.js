@@ -13,12 +13,16 @@ bot.on('message', (message) => {
             var stringArray = [];
             while (index < string.length) {
                 if (index % cutpoint == cutpoint - 1) {
-                    message.channel.send(string.substring(index - cutpoint, index), {
+                    message.channel.send(string.substring(index - cutpoint, index + 1), {
                         tts: true
+                    }).then((message) => {
+                        message.delete(3600000);
                     });
                 } else if (index == string.length - 1) {
                     message.channel.send(string.substring(index - (index % cutpoint), index), {
                         tts: true
+                    }).then((message) => {
+                        message.delete(3600000);
                     });
                 }
                 index++;
